@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ListViewHomeWorkPrism.Views.DetailPage"
+             Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LargeTextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="28" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <Image Source="{Binding PersonWanted.PictureUrl}"
+                   Aspect="AspectFit"
+                   ScaleX="0.9"
+                  ScaleY="0.9"/>
+            <Label Text="{Binding PersonWanted.Name}"
+                   Style="{StaticResource LargeTextStyle}"
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding PersonWanted.NickName}"
+                   Style="{StaticResource LargeTextStyle}"
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding PersonWanted.Age}"
+                   Style="{StaticResource LargeTextStyle}"
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding PersonWanted.ReasonWanted}"
+                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Send Alert"
+                    HorizontalOptions="Center"
+                    Padding="20"
+                    FontSize="Large"
+                    IsEnabled="{Binding IsNotBusy}"
+                    Command="{Binding SendAlertCommand}"/>
+            <ActivityIndicator IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"
+                               IsEnabled="{Binding IsBusy}" />
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

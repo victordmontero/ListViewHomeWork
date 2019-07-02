@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:ListViewHomeWork.ViewModels"
+             mc:Ignorable="d"
+             x:Class="ListViewHomeWork.Views.WantedList"
+             Title="FBI Most Wanted">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding PeopleWanted}"
+                      SelectedItem="{Binding SelectedPerson}"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell
+                            ImageSource="{Binding PictureUrl}"
+                            Text="{Binding Name}"
+                            Detail="{Binding NickName}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
