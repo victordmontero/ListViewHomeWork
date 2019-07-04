@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="BeersList.Views.DetailPage"
+             Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LargeTextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="28" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="Center" Margin="25,0">
+                <Image Source="{Binding SelectedBeer.ImageUrl}"
+                   Aspect="AspectFit"
+                   ScaleX="0.9"
+                  ScaleY="0.9"/>
+                <Label Text="{Binding SelectedBeer.Name}"
+                   Style="{StaticResource LargeTextStyle}"
+                HorizontalOptions="CenterAndExpand" />
+                <Label Text="{Binding SelectedBeer.Tagline}"
+                   Style="{StaticResource LargeTextStyle}"
+                HorizontalOptions="CenterAndExpand" />
+                <Label Text="{Binding SelectedBeer.Description}"
+                HorizontalOptions="CenterAndExpand" />
+                <Label Text="{Binding SelectedBeer.FirstBrewed}"
+                HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>
