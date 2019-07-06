@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using BeersList.Models;
 using BeersList.Services;
+using System.Threading.Tasks;
 
 namespace BeersList.ViewModels
 {
@@ -46,7 +47,9 @@ namespace BeersList.ViewModels
 
         private async void GetBeers()
         {
+            IsBusy = true;
             Beers = await beerService.GetBeersAsync();
+            IsBusy = false;
         }
 
         private async void OnSelectedBeer(Beer selectedBeer)

@@ -18,6 +18,20 @@ namespace BeersList.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
+        private bool isBusy;
+        public bool IsBusy
+        {
+            get { return isBusy; }
+            set
+            {
+                SetProperty(ref isBusy, value);
+                RaisePropertyChanged(nameof(IsNotBusy));
+            }
+
+        }
+
+        public bool IsNotBusy { get => !isBusy; }
+
         public ViewModelBase(INavigationService navigationService)
         {
             NavigationService = navigationService;

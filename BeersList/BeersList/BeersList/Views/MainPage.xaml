@@ -5,10 +5,16 @@
              Title="{Binding Title}">
 
     <StackLayout>
-
+        <Label Text="Fetching List of Beers"
+               IsVisible="{Binding IsBusy}"/>
+        <ActivityIndicator
+            IsEnabled="{Binding IsBusy}"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}" />
         <ListView ItemsSource="{Binding Beers}"
                   SelectedItem="{Binding SelectedBeer}"
-                  HasUnevenRows="True">
+                  HasUnevenRows="True"
+                  IsVisible="{Binding IsNotBusy}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ImageCell
